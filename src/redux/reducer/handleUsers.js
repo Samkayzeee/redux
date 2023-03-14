@@ -1,12 +1,15 @@
 const users = [];
-const lastId = 0;
+let lastId = 0;
 
 const handleUsers = (state = [], action) => {
+    const products = action.payload;
     switch (action.type) {
         case "ADDUSERS":
             return [
                 ...state,
-                action.payload
+                {
+                    ...products, id: ++lastId
+                }
             ]
             case "DELETEUSERS": 
             return state.filter(user => {user.id !== action.payload});

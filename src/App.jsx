@@ -8,6 +8,7 @@ const [name, setName] = useState("");
 const [password, setPassword] = useState("");
 const [user, setUser] = useState({});
 
+
   const handleSignup = (e) => {
     e.preventDefault();
     if(name === "" || password === ""){
@@ -16,11 +17,11 @@ const [user, setUser] = useState({});
     else{
       setUser({
         name:name,
-        password:password
+        password:password,
       });
       store.dispatch({
         type: "ADDUSERS",
-        payload: user
+        payload: user,
       })
       console.log(store.getState());
     }
@@ -30,9 +31,9 @@ const [user, setUser] = useState({});
     <div className="App">
       
     <form action="" onSubmit={handleSignup}>
-      <input type="text" name="" id=""  onInput={(n) => setName(n.target.value)}/>
+      <input type="text" name="" id="user_name"  onInput={(n) => setName(n.target.value)}/>
        <br /> <br />
-      <input type="password" name="" id="" onInput={(n) => setPassword(n.target.value)}/>
+      <input type="password" name="" id="user_password" onInput={(n) => setPassword(n.target.value)}/>
       <br /> <br />
       <button type="submit">Sign up</button>
     </form>
