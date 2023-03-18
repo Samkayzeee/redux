@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
-import { Login } from './features/user';
-// import store from './redux/reducer/store';
-import { userActions } from "./redux/reducer/handleUsers";
+import { Login } from './redux/user';
 import Profile from './profile';
 
 

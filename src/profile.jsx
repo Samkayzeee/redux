@@ -7,9 +7,11 @@ export default function Profile() {
     <div> 
         {
             user.map((user) => {
-                <div key={user.id}>
-                    {user.name}, {user.password}
-                </div>
+                return(
+                    <div key={user.id}>
+                        {user.name}, {user.password} {user.id}
+                    </div>
+                )
             })
         }
     </div>

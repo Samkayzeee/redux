@@ -12,9 +12,9 @@ const userSlice = createSlice({
         },
         removeuser: (state, action) => {
             const id = action.payload;
-            const removeuser = state.value.find((user) => {user.id === id});
+            const removeuser = state.value.find(user => user.id === id);
             if (removeuser) {
-                state.value = state.value.filter((user) => {user.id !== id});
+                state.value = state.value.filter(user => user.id !== id);
             }
         }
     }
