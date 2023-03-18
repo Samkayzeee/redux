@@ -1,12 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-const users = []
+const users = [];
+let lastId = 0;
 
 const userSlice = createSlice({
     name:"users",
-    initialState: {name:"", password:""},
+    initialState: {value: users},
     reducers: {
         login: (state, action) => {
-            state.value = action.payload
+            const user = action.payload;
+            state.value = [...state.value, {...user, id: ++lastId, qty: 1}];
+        },
+        removeuser: (state, action) => {
+            const id = action.payload;
+            const removeuser = state.value.find((user) => {user.id === id});
+            if (removeuser) {
+                state.value = state.value.filter((user) => {user.id !== id});
+            }
         }
     }
 })

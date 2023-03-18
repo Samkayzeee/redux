@@ -5,12 +5,11 @@ import App from './App'
 import './index.css'
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-// import userSlice from './features/user';
 import userSlice from './features/user';
 
 const store = configureStore({
   reducer:{
-    user: userSlice
+    user: userSlice.reducer
   }
 })
 

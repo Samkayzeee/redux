@@ -1,26 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Login } from './features/user';
 // import store from './redux/reducer/store';
 import { userActions } from "./redux/reducer/handleUsers";
+import Profile from './profile';
 
 
 
 function App() {
 const [name, setName] = useState("");
 const [password, setPassword] = useState("");
-// const [user, setUser] = useState({});
+const [user, setUser] = useState({});
 
 const dispatch = useDispatch();
-// const user = useSelector((state) => state.user.value);
-
-
 
   const handleSignup = (e) => {
     e.preventDefault();
-    dispatch(Login({name: name, password: password}))
+  if (name === "" || password === "") {
+    console.log("You're doing something wrong nigga");
+  }
+  else{
+    setUser({
+      name:name,
+      password:password
+    })
+    let log =  dispatch(Login.login(user));
+    console.log(log);
+  }
   }
 
+  const removeUser = () => {
+  let remove = dispatch(Login.removeuser(3));
+  console.log(remove);
+  }
   return (
     <div className="App">
       
@@ -31,14 +43,16 @@ const dispatch = useDispatch();
       <br /> <br />
       <button type="submit">Sign up</button>
     </form>
+    <br />
+
+    <button onClick={removeUser}>remove</button>
 
 
+      <div>
+        <Profile />
+      </div>
 
-{/* <div>
-  <h1>User is down Below</h1>
-  <p>name: {user.name}</p>
-  <p>password: {user.password}</p>
-</div> */}
+
     </div>
 
   )
