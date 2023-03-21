@@ -35,9 +35,9 @@ const dispatch = useDispatch();
     <div className="App">
       
     <form action="" onSubmit={handleSignup}>
-      <input type="text" name="" id="user_name"  onInput={(n) => setName(n.target.value)} placeholder={"Name..."}/>
+      <input type="text" name="" id="user_name"  onInput={(n) => setName(n.target.value)} placeholder= "Name..." />
        <br /> <br />
-      <input type="password" name="" id="user_password" onInput={(n) => setPassword(n.target.value)} placeholder={"Password..."} />
+      <input type="password" name="" id="user_password" onInput={(n) => setPassword(n.target.value)} placeholder= "Password..." />
       <br /> <br />
       <button type="submit">Sign up</button>
     </form>
